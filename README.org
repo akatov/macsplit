@@ -1,0 +1,320 @@
+* Macsplit Evolution
+
+** About
+
+Along the lines of [[http://www.winsplit-revolution.com][Winsplit Revolution]].
+This is just a preliminary version..
+
+** Description
+
+You can use freeware shortcut manager like [[http://www.shadowlab.org/softwares/spark.php][Spark]] to execute the
+scripts on keypress. I use the following setup:
+
+- Shift-Alt-Command-U - top left
+- Shift-Alt-Command-I - top
+- Shift-Alt-Command-O - top right
+- Shift-Alt-Command-J - left
+- Shift-Alt-Command-K - center
+- Shift-Alt-Command-L - right
+- Shift-Alt-Command-M - bottom left
+- Shift-Alt-Command-, - bottom
+- Shift-Alt-Command-. - bottom right
+
+** Sourcecode
+
+#+NAME: tl-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x0, y0, x2, y2}, {x0, y0, x1, y1}, {x0, y0, x3, y3}, {x0, y0, x3, y1}, {x0, y0, x1, y3}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: t-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x0, y0, x4, y2}, {x0, y0, x4, y1}, {x0, y0, x4, y3}, {x1, y0, x3, y3}, {x1, y0, x3, y1}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: tr-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x2, y0, x4, y2}, {x3, y0, x4, y1}, {x1, y0, x4, y3}, {x1, y0, x4, y1}, {x3, y0, x4, y3}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: l-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x2, y0, x4, y2}, {x3, y0, x4, y1}, {x1, y0, x4, y3}, {x1, y0, x4, y1}, {x3, y0, x4, y3}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: c-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x0, y0, x4, y4}, {x1, y0, x3, y4}, {x0, y1, x4, y3}, {x1, y1, x3, y3}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: r-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x2, y0, x4, y4}, {x3, y0, x4, y4}, {x1, y0, x4, y4}, {x3, y1, x4, y3}, {x1, y1, x4, y3}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: bl-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x0, y2, x2, y4}, {x0, y3, x1, y4}, {x0, y1, x3, y4}, {x0, y3, x3, y4}, {x0, y1, x1, y4}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: b-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x0, y2, x4, y4}, {x0, y3, x4, y4}, {x0, y1, x4, y4}, {x1, y3, x3, y4}, {x1, y1, x3, y4}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
+
+#+NAME: br-macsplit.scpt
+#+BEGIN_SRC applescript
+set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
+set y4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $4}'") * 1.0 - 4
+set x0 to 0
+set y0 to 22
+set x1 to (round (x4 / 3) rounding up)
+set x2 to (round (x4 / 2) rounding up)
+set x3 to (round (2 * x1) rounding up)
+set y1 to (round ((y4 - y0) / 3 + y0) rounding up)
+set y2 to (round ((y4 - y0) / 2 + y0) rounding up)
+set y3 to (round ((y4 - y0) / 3 * 2 + y0) rounding up)
+
+set d to {{x2, y2, x4, y4}, {x3, y3, x4, y4}, {x1, y1, x4, y4}, {x1, y3, x4, y4}, {x3, y1, x4, y4}}
+
+set front_app to (path to frontmost application as Unicode text)
+tell application front_app
+	activate
+	set cb to (get bounds of window 1)
+	set j to ((length of d) + 1)
+	repeat with i from 1 to length of d
+		set b to (item i of d)
+		if b is equal to cb then
+			set j to (i + 1)
+		end if
+	end repeat
+	if j is greater than ((length of d)) then
+		set j to 1
+	end if
+	set bounds of window 1 to (item j of d)
+end tell
+#+END_SRC
