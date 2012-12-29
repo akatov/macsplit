@@ -7,7 +7,7 @@ This is just a preliminary version..
 
 ** Description
 
-You can use freeware shortcut manager like [[http://www.shadowlab.org/softwares/spark.php][Spark]] to execute the
+You can use a freeware shortcut manager like [[http://www.shadowlab.org/softwares/spark.php][Spark]] to execute the
 scripts on keypress. I use the following setup:
 
 - Shift-Alt-Command-U - top left
@@ -21,7 +21,7 @@ scripts on keypress. I use the following setup:
 - Shift-Alt-Command-. - bottom right
 
 ** Sourcecode
-
+*** tl-macsplit.scpt
 #+NAME: tl-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -55,6 +55,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** t-macsplit.scpt
 #+NAME: t-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -88,6 +89,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** tr-macsplit.scpt
 #+NAME: tr-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -121,6 +123,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** l-macsplit.scpt
 #+NAME: l-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -154,6 +157,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** c-macsplit.scpt
 #+NAME: c-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -187,6 +191,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** r-macsplit.scpt
 #+NAME: r-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -220,6 +225,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** bl-macsplit.scpt
 #+NAME: bl-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -253,6 +259,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** b-macsplit.scpt
 #+NAME: b-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
@@ -286,6 +293,7 @@ tell application front_app
 end tell
 #+END_SRC
 
+*** br-macsplit.scpt
 #+NAME: br-macsplit.scpt
 #+BEGIN_SRC applescript
 set x4 to (do shell script "system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'") * 1.0
